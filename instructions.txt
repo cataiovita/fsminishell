@@ -1,0 +1,33 @@
+instructions.txt
+
+===============================================================================
+STRUCTURA ARHIVA---------------------------------------------------------------
+    * check.sh - script-ul bash ce realizeaza testarea automata
+
+    * ./input/* - testele folosite in verificarea temei
+
+    * ./ref/* - referintele testelor folosite
+
+    * ./output - aici o sa apara output-urile rezultate din rularea
+executabilului vostru de catre checker; le puteti folosi pentru a depana mai
+usor in cazul in care acestea nu sunt identice cu cele referinta
+               - de asemenea, aici o sa apara si fisierul "styleErrors.txt" in
+care se specifica ce erori de Coding Style aveti
+===============================================================================
+
+===============================================================================
+INSTRUCTIUNI DE UTILIZARE------------------------------------------------------
+1) Asigurati-va ca checker-ul are drepturi de executie:
+
+$ ls -al
+-rw-rw-r-- 1 laurentiu laurentiu 5384 mar  7 18:07 check.sh
+$ chmod +x check.sh
+$ ls -al
+-rwxrwxr-x 1 laurentiu laurentiu 5384 mar  7 18:07 check.sh
+
+2) Asigurati-va ca aveti toate sursele, fisierul Makefile si fisierul README
+in radacina directorului, unde se afla si fisierul check.sh.
+
+3) Rulati checker-ul si spor la debugging:
+$ ./check.sh
+===============================================================================

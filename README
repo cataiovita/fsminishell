@@ -1,0 +1,66 @@
+@@@@@@@@ TIMP DE IMPLEMENTARE @@@@@@@@@
+Am implementat intreaga tema in aproximativ 75h.
+
+@@@@@@@@ IMPLEMENTARE @@@@@@@@@
+	Promptul l-am creat salvand intr-un buffer alocat static in main
+tot stringul pe care il introduc de la tastatura. Aplic apoi functia 
+cutString prin care sparg acest buffer in mici stringuri cu strtok,
+stringuri care imi sunt necesare pentru a fi date ca parametru mai tarziu
+functiilor: nume, continut fisiere sau argumentele necesare functiei find.
+Am inclus aceasta spargere intr-un while infinit, efectuand-o la fiecare
+introducere de la tastatura a cate unei comenzi. Stringurile acestea necesita 
+a fi individualizate deoarece am nevoie de o comparatie intre stringurile 
+introduse si cele necesar implementate.
+	Directorul radacina l-am creat prin atribuirea acestuia a unui director
+parinte egal cu null, a numelui impus si a listelor initial nule.
+
+Tasks I-VI- Task-urile 1-6 le-am implementat cu ajutorul functiilor de 
+pushfront, pushback pentru listele de directoare si fisiere din interiorul
+fiecarui director in parte. Am facut o ordonare la introducere printr-o 
+functie sortedInsert, o comparatie dupa nume-strcmp, prin care abordeam cele
+trei cazuri, numele nodului se afla la inceput, la sfarsit sau intre
+alte elemente din lista (parcurg pana cand string-ul devine 'mai mare' decat
+cel anterior.). Functia de list am implementat-o parcurgand initial toate
+nodurile de tip fisier din interiorul directorului, dupa care lista de direc-
+toare.
+
+Tasks VII-X- Task-ul de change directory l-am implementat folosindu-ma de 
+un pointer curent, ce reprezinta pozitia curenta la fiecare moment, cu care
+ma plimb prin fiecare director si ce initial pointeaza la directorul radacina. 
+La fiecare comanda CD, acest pointer isi muta pozitia la capul listei de 
+directoare a directorului curent. Pentru a ma muta la un director specific, 
+filtrarea se face dupa numele directorului, astfel parcurg lista de directoare 
+pana il gasesc pe cel dorit. Change directory back l-am implementat cu ajutorul
+aceluiasi pointer pe care acum il mut la directorul parinte al acestuia.
+Functia de pwd am facut-o prin parcurgere inversa a pozitiei pe care directorul
+curent o are, cu ajutorul cd .. prin care ma intorc la directorul de la care
+am plecat, printand totodata si numele stringurilor, salvate intr-o lista tem-
+porara.
+
+Tasks XI-XII - Task-ul care mi-a ocupat cel mai mult timp, aceasta parcurgere
+a directoarelor si fisierelor din interiorul sistemului de fisiere am
+facut-o parcurgand fiecare subdirector al fiecarui director, pana cand 
+directorul ajunge sa nu mai aiba o lista de directoare in interior. In acest
+moment, ma mut la urmatorul director din lista curenta de directoare, in caz
+ca acesta exista. Daca acesta nu exista, ma mut la directorul parinte si apoi
+continui parcurgerea. Astfel, parcurg fiecare director in adancime, apoi pe 
+latimea acestuia. Inainte de afisarea directorului propriu-zis, afisez fiecare
+lista de fisiere din interiorul acestuia si odata cu cresterea nivelului in
+adancime, incrementez si un counter in care pastrez numarul de iteratii 
+pentru white-space-urile necesar printarii.
+
+Tasks XIII-XIV - Task-urile de rm si rmdir le-am implementat prin functii de 
+stergere a nodurilor listelor continute de directoare sau fisiere si parcurge-
+rea pe care am folosit-o la task-ul tree, necesara pentru stergerea fiecarui
+subdirector si fisier din directorul sters. La fiecare stergere de fisier, am
+sters fiecare element alocat dinamic structurii (nume si continut), la fel si
+in cazul directoarelor, stergand numele si apoi nodul.
+
+BONUS - Task-urile din bonus le-am implementat cu acelasi tip de parcurgere de 
+mai sus, tinand insa de nivelul de 'adancime' la care ma aflu in interiorul
+ierarhiei de fisiere. La fiecare mutare a pozitiei - cresterea nivelului, 
+incrementez un contor de adancime, pe care il setez ca limita si ca reper
+pentru argumentul dat functiei find (max depth). Odata ce ating acest nivel
+opresc afisarea fisierelor. Cautarea lor mai e filtrata si dupa criteriile de
+lungime a stringului (initiata in crearea fisierelor) si existenta a 
+substringului -strstr.
